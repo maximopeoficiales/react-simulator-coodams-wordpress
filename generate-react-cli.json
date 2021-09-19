@@ -1,0 +1,49 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": false,
+  "cssPreprocessor": "css",
+  "testLibrary": "Testing Library",
+  "component": {
+    "default": {
+      "customTemplates": {
+        "component": "src/templates/component/TemplateName.tsx"
+      },
+      "path": "src/components",
+      "d": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false,
+      "withStyle": false
+    },
+    "page": {
+      "customTemplates": {
+        "component": "src/templates/component/TemplateName.tsx"
+      },
+      "path": "src/screens/pages",
+      "d": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "auth": {
+      "customTemplates": {
+        "component": "src/templates/component/TemplateName.tsx"
+      },
+      "path": "src/screens/auth",
+      "d": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "journal": {
+      "customTemplates": {
+        "component": "src/templates/component/TemplateName.tsx"
+      },
+      "path": "src/screens/journal",
+      "d": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    }
+  }
+}
