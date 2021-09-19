@@ -9,18 +9,25 @@
         "component": "src/templates/component/TemplateName.tsx"
       },
       "path": "src/components",
-      "d": false,
       "withTest": false,
       "withStory": false,
       "withLazy": false,
       "withStyle": false
+    },
+    "ui": {
+      "customTemplates": {
+        "component": "src/templates/component/TemplateName.tsx"
+      },
+      "path": "src/components/ui",
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
     },
     "page": {
       "customTemplates": {
         "component": "src/templates/component/TemplateName.tsx"
       },
       "path": "src/screens/pages",
-      "d": true,
       "withTest": false,
       "withStory": false,
       "withLazy": false
@@ -30,7 +37,6 @@
         "component": "src/templates/component/TemplateName.tsx"
       },
       "path": "src/screens/auth",
-      "d": true,
       "withTest": false,
       "withStory": false,
       "withLazy": false
@@ -40,7 +46,6 @@
         "component": "src/templates/component/TemplateName.tsx"
       },
       "path": "src/screens/journal",
-      "d": true,
       "withTest": false,
       "withStory": false,
       "withLazy": false

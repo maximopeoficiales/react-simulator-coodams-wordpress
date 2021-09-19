@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
+import Simulador from "./components/Simulador/Simulador";
+import Spinner from "./components/ui/Spinner/Spinner";
+import { config } from "./config/config";
+import { TasaContext } from "./context/TasaContext";
+import { useFetch } from "./hooks/useFetch/useFetch";
 
 function App() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    (async () => {
-      let data = await (
-        await fetch("https://jsonplaceholder.typicode.com/todos")
-      ).json();
-      console.log(data);
-      setData(data);
-    })();
-  }, []);
+  const { data, loading } = useFetch(
+    `${config.URL_API_BASE}/${config.URL_GET_OPTIONS}`
+  );
+
+  if (loading) {
+    return (
+      <>
+        <h3>Cargando Simulador</h3>
+        <Spinner />
+      </>
+    );
+  }
+
   return (
-    <>
-      <div className="App">
-        {data.map((e: any) => {
-          return <li>{e.title}</li>;
-        })}
-      </div>
-    </>
+    <TasaContext.Provider value={{ tasaData: data }}>
+      <Simulador />
+    </TasaContext.Provider>
   );
 }
 

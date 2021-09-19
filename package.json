@@ -24,7 +24,8 @@
     "cc": "npx generate-react-cli component",
     "ca": "npx generate-react-cli component --type=auth",
     "cj": "npx generate-react-cli component --type=journal",
-    "cp": "npx generate-react-cli component --type=page"
+    "cp": "npx generate-react-cli component --type=page",
+    "cu": "npx generate-react-cli component --type=ui"
   },
   "eslintConfig": {
     "extends": [
