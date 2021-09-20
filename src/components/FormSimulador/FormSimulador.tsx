@@ -8,6 +8,7 @@ interface MyProps {}
 const FormSimulador = (props: MyProps) => {
   const { tasaData } = useContext(TasaContext);
   const [montoSolicitado, setMontoSolicitado] = useState(1);
+
   const creditoDataFormated = creditoDataFilter(creditoData, tasaData);
 
   console.log(tasaData);
@@ -15,7 +16,9 @@ const FormSimulador = (props: MyProps) => {
   const handleChangeRange = (e: ChangeEvent<HTMLInputElement>) => {
     setMontoSolicitado(parseInt(e.target.value));
   };
-
+  const handlerChangeSelectCredito = (e: ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value);
+  };
   return (
     <div className="container-simulador">
       <div className="">
@@ -39,10 +42,13 @@ const FormSimulador = (props: MyProps) => {
 
         <div className="form-group">
           <label htmlFor=""></label>
-          <select className="form-control" name="" id="">
+          <select
+            className="form-control"
+            onChange={handlerChangeSelectCredito}
+          >
             {creditoDataFormated.map((e) => (
               <option key={e.id} value={e.id}>
-                {e.type}
+                {e.nombre}
               </option>
             ))}
           </select>
