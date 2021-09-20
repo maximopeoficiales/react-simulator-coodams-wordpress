@@ -1,3 +1,4 @@
+import "./App.css";
 import Simulador from "./components/Simulador/Simulador";
 import Spinner from "./components/ui/Spinner/Spinner";
 import { config } from "./config/config";
