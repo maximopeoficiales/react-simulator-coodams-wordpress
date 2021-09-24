@@ -7,10 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 
 .container {
   width: 95%;
@@ -20,11 +16,21 @@ code {
 .w-100 {
   width: 100%;
 }
+.d-block {
+  display: block;
+}
 .d-flex {
   display: flex;
 }
 .justify-content-between {
   justify-content: space-between;
+}
+.text-center{
+  text-align: center;
+}
+.mx-2 {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .my-2 {
   margin-top: 10px;

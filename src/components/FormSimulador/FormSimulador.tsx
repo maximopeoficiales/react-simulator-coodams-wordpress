@@ -5,12 +5,15 @@ import {
   CreditoType,
 } from "../../api/dto/data/credito.data";
 import { creditoDataFilter } from "../../api/utils/creditoFormated";
+import { getTasaByAntiguedad } from "../../api/utils/getTasaByAntiguedad";
+import { numberWithCommas } from "../../api/utils/numberWithComas";
 import { TasaContext } from "../../context/TasaContext";
 import FormDetalle from "../FormDetalle/FormDetalle";
 
 interface MyProps {}
 const FormSimulador = (props: MyProps) => {
   const { tasaData } = useContext(TasaContext);
+  // states
   const [idSeleccionado, setIdSeleccionado] = useState<string>(
     CreditoType.LIBRE_INVERSION
   );
@@ -19,13 +22,22 @@ const FormSimulador = (props: MyProps) => {
   const [plazo, setPlazo] = useState(1);
   const [mostrarAntiguedad, setMostrarAntiguedad] = useState(false);
   const [antiguedad, setAntiguedad] = useState("");
-  let creditoSeleccionado = creditoData.find((e) => e.id === idSeleccionado);
-
+  const [tasa, setTasa] = useState(0);
+  const [creditoSeleccionado, setCreditoSeleccionado] = useState<
+    Partial<CreditoData>
+  >({});
+  // effects
   useEffect(() => {
     // obtengo opciones por defecto
     const creditoDataFormated = creditoDataFilter(creditoData, tasaData);
     setCreditoNames(creditoDataFormated);
   }, [tasaData]);
+
+  useEffect(() => {
+    let creditoFilter = creditoData.find((e) => e.id === idSeleccionado);
+    setTasa(creditoFilter?.tasa ?? 0);
+    setCreditoSeleccionado(creditoFilter ?? {});
+  }, [idSeleccionado]);
 
   // events listener
   const handleChangeRange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,16 +47,22 @@ const FormSimulador = (props: MyProps) => {
   const handleChangePlazo = (e: ChangeEvent<HTMLSelectElement>) => {
     setPlazo(parseInt(e.target.value));
   };
-  const handleChangeAntiguedad = (e: ChangeEvent<HTMLSelectElement>) => {
-    setAntiguedad(e.target.value);
-  };
 
   const handlerChangeSelectCredito = (e: ChangeEvent<HTMLSelectElement>) => {
     setMontoSolicitado(0);
     let idSelect = e.target.value;
-    console.log(idSelect);
     setIdSeleccionado(idSelect);
     setMostrarAntiguedad(idSelect === CreditoType.VEHICULO);
+  };
+
+  const handleChangeAntiguedad = (e: ChangeEvent<HTMLSelectElement>) => {
+    let tasa = getTasaByAntiguedad(e.target.value);
+    setTasa(tasa);
+    setAntiguedad(e.target.value);
+  };
+
+  const calcularCredito = () => {
+    console.log(montoSolicitado, tasa, plazo);
   };
 
   return (
@@ -55,7 +73,7 @@ const FormSimulador = (props: MyProps) => {
             <b>Monto Solicitado</b>
           </span>
           <span>
-            <b>{montoSolicitado}</b>
+            <b>{numberWithCommas(montoSolicitado)}</b>
           </span>
         </div>
         <div className="">
@@ -63,7 +81,7 @@ const FormSimulador = (props: MyProps) => {
             onChange={handleChangeRange}
             type="range"
             className="w-100"
-            min="1"
+            min="0"
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
@@ -76,7 +94,7 @@ const FormSimulador = (props: MyProps) => {
           </label>
           <select
             id="idSelectCredito"
-            className="form-control"
+            className="w-100"
             onChange={handlerChangeSelectCredito}
             value={idSeleccionado}
           >
@@ -94,11 +112,11 @@ const FormSimulador = (props: MyProps) => {
           </label>
           <select
             id="idSelectCredito"
-            className="form-control"
+            className="w-100 "
             onChange={handleChangePlazo}
             value={plazo}
           >
-            {creditoSeleccionado?.plazos.map((e, index) => (
+            {creditoSeleccionado?.plazos?.map((e, index) => (
               <option key={e} value={e}>
                 {e}
               </option>
@@ -113,7 +131,7 @@ const FormSimulador = (props: MyProps) => {
             </label>
             <select
               id="idSelectAntiguedad"
-              className="form-control"
+              className="w-100"
               onChange={handleChangeAntiguedad}
               value={antiguedad}
             >
@@ -125,7 +143,11 @@ const FormSimulador = (props: MyProps) => {
             </select>
           </div>
         )}
+        <button onClick={calcularCredito} className="my-2 w-100">
+          Calcular
+        </button>
       </div>
+
       <FormDetalle />
     </div>
   );

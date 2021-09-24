@@ -1,3 +1,6 @@
+.text-center {
+  text-align: center;
+}
 .loader {
   color: #80be74;
   font-size: 90px;

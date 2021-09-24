@@ -13,7 +13,7 @@ function App() {
   if (loading) {
     return (
       <>
-        <h3>Cargando Simulador</h3>
+        <h4 className="text-center">Cargando Simulador ...</h4>
         <Spinner />
       </>
     );
