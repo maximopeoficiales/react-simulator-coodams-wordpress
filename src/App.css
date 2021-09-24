@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 .container {
   width: 95%;
   /* max-width: 1200px; */
@@ -25,12 +24,17 @@ body {
 .justify-content-between {
   justify-content: space-between;
 }
-.text-center{
+.text-center {
   text-align: center;
 }
 .mx-2 {
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .my-2 {
   margin-top: 10px;

@@ -78,7 +78,7 @@ const FormSimulador = (props: MyProps) => {
             <b>Monto Solicitado</b>
           </span>
           <span>
-            <b>{numberWithCommas(montoSolicitado)}</b>
+            <b>$ {numberWithCommas(montoSolicitado,",")}</b>
           </span>
         </div>
         <div className="">
@@ -146,6 +146,7 @@ const FormSimulador = (props: MyProps) => {
                 </option>
               ))}
             </select>
+            <small>Selecciona la Antiguedad como asociado de la cooperativa</small>
           </div>
         )}
         <button onClick={calcularCredito} className="my-2 w-100">
