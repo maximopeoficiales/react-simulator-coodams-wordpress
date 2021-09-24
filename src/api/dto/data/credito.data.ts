@@ -6,6 +6,11 @@ export enum CreditoType {
     VEHICULO2 = "VEHICULO2",
     VEHICULO3 = "VEHICULO3",
 }
+export enum Antiguedad {
+    DE_12_36_MESES = "12 - 36 meses",
+    DE_37_120_MESES = "37 - 120 meses",
+    MAS_120_MESES = "Más de 120 meses"
+}
 export interface CreditoData {
     id: CreditoType;
     tasa?: number;
@@ -14,12 +19,13 @@ export interface CreditoData {
     nombre: string;
     montoMax: number
     plazos: number[];
-    variantes?: CreditoData[]
+    antiguedades?: Antiguedad[]
 }
 
 export const creditoData: CreditoData[] = [
     {
         id: CreditoType.LIBRE_INVERSION,
+        tasa: 1.6,
         nombre: "Libre Inversíon (especial)",
         antiguedad: "",
         helpText: "",
@@ -28,6 +34,7 @@ export const creditoData: CreditoData[] = [
     },
     {
         id: CreditoType.VIVIENDA,
+        tasa: 1.3,
         nombre: "Vivienda",
         antiguedad: "",
         helpText: "Antiguedad minima de 12 meses",
@@ -36,36 +43,13 @@ export const creditoData: CreditoData[] = [
     },
     {
         id: CreditoType.VEHICULO,
+        tasa: 1.3,
         nombre: "Vehiculo",
         antiguedad: "12 - 36 meses",
         helpText: "",
-        montoMax: 0,
-        plazos: [],
-        variantes: [
-            {
-                id: CreditoType.VEHICULO1,
-                nombre: "Vehiculo1",
-                antiguedad: "12 - 36 meses",
-                helpText: "",
-                montoMax: 45426300,
-                plazos: [12, 24, 36, 48, 60]
-            },
-            {
-                id: CreditoType.VEHICULO2,
-                nombre: "Vehiculo2",
-                antiguedad: "37 - 120 meses",
-                helpText: "",
-                montoMax: 45426300,
-                plazos: [12, 24, 36, 48, 60]
-            },
-            {
-                id: CreditoType.VEHICULO2,
-                nombre: "Vehiculo2",
-                antiguedad: "Más de 120 meses",
-                helpText: "",
-                montoMax: 45426300,
-                plazos: [12, 24, 36, 48, 60]
-            },
-        ]
+        montoMax: 45426300,
+        plazos: [12, 24, 36, 48, 60],
+        antiguedades: [Antiguedad.DE_12_36_MESES, Antiguedad.DE_37_120_MESES, Antiguedad.MAS_120_MESES]
+
     },
 ]

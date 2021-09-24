@@ -26,6 +26,10 @@ code {
 .justify-content-between {
   justify-content: space-between;
 }
+.my-2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 /* grid para formulario */
 .container-simulador {
   display: grid;
