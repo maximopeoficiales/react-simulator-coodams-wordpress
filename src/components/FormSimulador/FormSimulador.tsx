@@ -112,11 +112,11 @@ const FormSimulador = (props: MyProps) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="idSelectCredito" className="d-flex my-2">
+          <label htmlFor="idSelectPlazo" className="d-flex my-2">
             <b>Plazos / Cuotas</b>
           </label>
           <select
-            id="idSelectCredito"
+            id="idSelectPlazo"
             className="w-100 "
             onChange={handleChangePlazo}
             value={plazo}
