@@ -4,6 +4,7 @@ import {
   creditoData,
   CreditoType,
 } from "../../api/dto/data/credito.data";
+import { addTasasDataApi } from "../../api/utils/addTasasData";
 import { creditoDataFilter } from "../../api/utils/creditoFormated";
 import { getTasaByAntiguedad } from "../../api/utils/getTasaByAntiguedad";
 import { numberWithCommas } from "../../api/utils/numberWithComas";
@@ -17,6 +18,7 @@ const FormSimulador = (props: MyProps) => {
   const [idSeleccionado, setIdSeleccionado] = useState<string>(
     CreditoType.LIBRE_INVERSION
   );
+  const [mostrarDetalle, setMostrarDetalle] = useState(false);
   const [montoSolicitado, setMontoSolicitado] = useState(1);
   const [creditoNames, setCreditoNames] = useState<CreditoData[]>([]);
   const [plazo, setPlazo] = useState(1);
@@ -26,6 +28,7 @@ const FormSimulador = (props: MyProps) => {
   const [creditoSeleccionado, setCreditoSeleccionado] = useState<
     Partial<CreditoData>
   >({});
+
   // effects
   useEffect(() => {
     // obtengo opciones por defecto
@@ -34,10 +37,11 @@ const FormSimulador = (props: MyProps) => {
   }, [tasaData]);
 
   useEffect(() => {
-    let creditoFilter = creditoData.find((e) => e.id === idSeleccionado);
+    let creditoData2 = addTasasDataApi(creditoData, tasaData);
+    let creditoFilter = creditoData2.find((e) => e.id === idSeleccionado);
     setTasa(creditoFilter?.tasa ?? 0);
     setCreditoSeleccionado(creditoFilter ?? {});
-  }, [idSeleccionado]);
+  }, [idSeleccionado, tasaData]);
 
   // events listener
   const handleChangeRange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,12 +60,13 @@ const FormSimulador = (props: MyProps) => {
   };
 
   const handleChangeAntiguedad = (e: ChangeEvent<HTMLSelectElement>) => {
-    let tasa = getTasaByAntiguedad(e.target.value);
+    let tasa = getTasaByAntiguedad(e.target.value, tasaData);
     setTasa(tasa);
     setAntiguedad(e.target.value);
   };
 
   const calcularCredito = () => {
+    setMostrarDetalle(true);
     console.log(montoSolicitado, tasa, plazo);
   };
 
@@ -148,7 +153,15 @@ const FormSimulador = (props: MyProps) => {
         </button>
       </div>
 
-      <FormDetalle />
+      <div className="">
+        {mostrarDetalle ? (
+          <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
+        ) : (
+          <p>
+            <b>Una Imagen</b>
+          </p>
+        )}
+      </div>
     </div>
   );
 };
