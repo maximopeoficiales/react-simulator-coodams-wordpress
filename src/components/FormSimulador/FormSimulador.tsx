@@ -77,10 +77,19 @@ const FormSimulador = (props: MyProps) => {
           <span>
             <b>Monto Solicitado</b>
           </span>
+
           <span>
-            <b>$ {numberWithCommas(montoSolicitado,",")}</b>
+            <b>$ {numberWithCommas(montoSolicitado)}</b>
           </span>
         </div>
+        <input
+          onChange={handleChangeRange}
+          type="number"
+          className="w-100 my-2"
+          min="0"
+          max={creditoSeleccionado?.montoMax ?? 1}
+          value={montoSolicitado}
+        />
         <div className="">
           <input
             onChange={handleChangeRange}
@@ -146,7 +155,9 @@ const FormSimulador = (props: MyProps) => {
                 </option>
               ))}
             </select>
-            <small>Selecciona la Antiguedad como asociado de la cooperativa</small>
+            <small>
+              Selecciona la Antiguedad como asociado de la cooperativa
+            </small>
           </div>
         )}
         <button onClick={calcularCredito} className="my-2 w-100">
