@@ -25,15 +25,17 @@ const FormDetalle = (props: MyProps) => {
           <b>Tasa de Interes</b>
         </span>
         <span>
-          <b>{tasa} %</b>
+          <b className="simulador-color-valor">{tasa} %</b>
         </span>
       </div>
       <div className="d-flex justify-content-between my-2">
         <span>
-          <b>Valor Cuota Mensual</b>
+          <b className="simulador-color-valor">Valor Cuota Mensual</b>
         </span>
         <span>
-          <b>${numberWithCommas(valorCuotaMensual)}</b>
+          <b className="simulador-color-valor">
+            ${numberWithCommas(valorCuotaMensual)}
+          </b>
         </span>
       </div>
       <div className="d-flex justify-content-between my-2">
@@ -45,13 +47,15 @@ const FormDetalle = (props: MyProps) => {
         </span>
       </div>
 
-      <span>
-        <b>Nota:</b>
-      </span>
-      <p className="my-0">
-        Si tienes la opción de realizar abonos extras, consulta con un asesor y
-        revisa tu proyección
-      </p>
+      <div className="mt-4">
+        <span>
+          <b>Nota:</b>
+        </span>
+        <p className="my-0 text-muted">
+          Si tienes la opción de realizar abonos extras, consulta con un asesor
+          y revisa tu proyección
+        </p>
+      </div>
     </div>
   );
 };

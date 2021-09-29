@@ -87,15 +87,16 @@ const FormSimulador = (props: MyProps) => {
           </span>
 
           <span>
-            <b>$ {numberWithCommas(montoSolicitado)}</b>
+            <b className="simulador-color-valor">$ {numberWithCommas(montoSolicitado)}</b>
           </span>
         </div>
         <div className="d-flex">
           <input
             onChange={handleChangeRange}
             type="number"
-            className="w-100 my-2"
+            className="w-100 my-2 simulador-scroll-input"
             min="0"
+            step="0.01"
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
@@ -109,7 +110,9 @@ const FormSimulador = (props: MyProps) => {
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
-          <small>Desliza para elegir el monto deseado de su préstamo</small>
+          <small className="text-muted">
+            Desliza para elegir el monto deseado de su préstamo
+          </small>
         </div>
 
         <div className="form-group">
@@ -165,19 +168,20 @@ const FormSimulador = (props: MyProps) => {
                 </option>
               ))}
             </select>
-            <small>
+            <small className="text-muted my-2 d-block">
               Selecciona la Antiguedad como asociado de la cooperativa
             </small>
           </div>
         )}
-        <button onClick={calcularCredito} className="my-2 w-100">
+        <button onClick={calcularCredito} className="my-2 w-100 simulador-button">
           Calcular
         </button>
       </div>
 
-      <div className="m-auto">
+      <div className="my-auto">
         {mostrarDetalle ? (
           <>
+            <h2>Detalle del Prestamo</h2>
             <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
             <ModalDetail
               data={{ tasa, plazo, montoSolicitado }}

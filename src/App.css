@@ -30,8 +30,15 @@ body {
 .text-center {
   text-align: center;
 }
+.text-muted {
+  color: #6c757d !important;
+}
 .m-auto {
   margin: auto auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .mx-2 {
   margin-right: 10px;
@@ -42,9 +49,19 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+.my-1 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .my-2 {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.mt-2 {
+  margin-top: 10px;
+}
+.mt-4 {
+  margin-top: 20px;
 }
 /* grid para formulario */
 .container-simulador {
@@ -52,6 +69,7 @@ body {
   grid-template-columns: 1fr;
   column-gap: 20px;
 }
+
 @media (min-width: 768px) {
   .container-simulador {
     grid-template-columns: 1fr 1fr;

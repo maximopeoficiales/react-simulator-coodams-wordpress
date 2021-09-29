@@ -19,7 +19,9 @@ const ModalDetail = (props: MyProps) => {
       <div className={`modal ${classVisible}`} data-animation="slideInOutLeft">
         <div className="modal-dialog">
           <header className="modal-header">
-            <b>Detalle del Prestamo</b>
+            <h3 className="my-0">
+              <b>Detalle del Prestamo</b>
+            </h3>
             <button
               className="close-modal"
               aria-label="close modal"
