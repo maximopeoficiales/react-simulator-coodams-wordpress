@@ -23,7 +23,7 @@ const ModalDetail = (props: MyProps) => {
               <b>Detalle del Prestamo</b>
             </h3>
             <button
-              className="close-modal"
+              className="close-modal simulador-btn-hidden-modal"
               aria-label="close modal"
               data-close
               onClick={hidden}

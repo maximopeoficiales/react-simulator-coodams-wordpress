@@ -87,14 +87,16 @@ const FormSimulador = (props: MyProps) => {
           </span>
 
           <span>
-            <b className="simulador-color-valor">$ {numberWithCommas(montoSolicitado)}</b>
+            <b className="simulador-color-valor">
+              $ {numberWithCommas(montoSolicitado)}
+            </b>
           </span>
         </div>
         <div className="d-flex">
           <input
             onChange={handleChangeRange}
             type="number"
-            className="w-100 my-2 simulador-scroll-input"
+            className="w-100 my-2 simulador-input"
             min="0"
             step="0.01"
             max={creditoSeleccionado?.montoMax ?? 1}
@@ -105,7 +107,7 @@ const FormSimulador = (props: MyProps) => {
           <input
             onChange={handleChangeRange}
             type="range"
-            className="w-100"
+            className="w-100 simulador-scroll-input"
             min="0"
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
@@ -121,7 +123,7 @@ const FormSimulador = (props: MyProps) => {
           </label>
           <select
             id="idSelectCredito"
-            className="w-100"
+            className="w-100 simulador-select"
             onChange={handlerChangeSelectCredito}
             value={idSeleccionado}
           >
@@ -139,7 +141,7 @@ const FormSimulador = (props: MyProps) => {
           </label>
           <select
             id="idSelectPlazo"
-            className="w-100 "
+            className="w-100 simulador-select"
             onChange={handleChangePlazo}
             value={plazo}
           >
@@ -173,7 +175,10 @@ const FormSimulador = (props: MyProps) => {
             </small>
           </div>
         )}
-        <button onClick={calcularCredito} className="my-2 w-100 simulador-button">
+        <button
+          onClick={calcularCredito}
+          className="my-2 w-100 simulador-button"
+        >
           Calcular
         </button>
       </div>
