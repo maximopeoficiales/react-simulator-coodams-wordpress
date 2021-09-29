@@ -196,7 +196,7 @@ const FormSimulador = (props: MyProps) => {
           </>
         ) : (
           <p>
-            <b>Una Imagen</b>
+            {/* <b>Una Imagen</b> */}
           </p>
         )}
       </div>

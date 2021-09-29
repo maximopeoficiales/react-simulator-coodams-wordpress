@@ -6,7 +6,10 @@ export const getUrlApi = () => {
     let host = location.hostname;
     // eslint-disable-next-line no-restricted-globals
     let protocol = location.protocol;
-    let urlBase = protocol + "//" + host;
+    // eslint-disable-next-line no-restricted-globals
+    let existsInUrlTest = location.href.includes("test");
+
+    let urlBase = protocol + "//" + host + (existsInUrlTest ? "/test" : "");
     if (host.includes("localhost")) {
         urlBase = URL_API_BASE;
     }
