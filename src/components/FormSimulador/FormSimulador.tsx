@@ -10,6 +10,7 @@ import { getTasaByAntiguedad } from "../../api/utils/getTasaByAntiguedad";
 import { numberWithCommas } from "../../api/utils/numberWithComas";
 import { TasaContext } from "../../context/TasaContext";
 import FormDetalle from "../FormDetalle/FormDetalle";
+import ModalDetail from "../ModalDetail/ModalDetail";
 
 interface MyProps {}
 const FormSimulador = (props: MyProps) => {
@@ -172,7 +173,10 @@ const FormSimulador = (props: MyProps) => {
 
       <div className="m-auto">
         {mostrarDetalle ? (
-          <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
+          <>
+            <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
+            <ModalDetail data={{ tasa, plazo, montoSolicitado }} />
+          </>
         ) : (
           <p>
             <b>Una Imagen</b>
