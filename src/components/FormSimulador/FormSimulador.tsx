@@ -45,7 +45,12 @@ const FormSimulador = (props: MyProps) => {
 
   // events listener
   const handleChangeRange = (e: ChangeEvent<HTMLInputElement>) => {
-    setMontoSolicitado(parseInt(e.target.value));
+    let montoMaximo = creditoSeleccionado?.montoMax ?? 1;
+    if (parseFloat(e.target.value) <= montoMaximo) {
+      setMontoSolicitado(parseFloat(e.target.value));
+    } else {
+      setMontoSolicitado(0);
+    }
   };
 
   const handleChangePlazo = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -165,7 +170,7 @@ const FormSimulador = (props: MyProps) => {
         </button>
       </div>
 
-      <div className="">
+      <div className="m-auto">
         {mostrarDetalle ? (
           <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
         ) : (

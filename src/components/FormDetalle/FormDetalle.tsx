@@ -1,4 +1,7 @@
-import { getValorCuotaMensual, getValorInteresMensual } from "../../api/utils/getCuotaPrestamo";
+import {
+  getValorCuotaMensual,
+  getValorInteresMensual,
+} from "../../api/utils/getCuotaPrestamo";
 import { numberWithCommas } from "../../api/utils/numberWithComas";
 
 interface MyProps {
@@ -7,16 +10,16 @@ interface MyProps {
 const FormDetalle = (props: MyProps) => {
   const { montoSolicitado, plazo, tasa } = props.data;
 
-  let valorCuotaMensual = getValorCuotaMensual(montoSolicitado, plazo, tasa);
+  let valorCuotaMensual = Math.round(
+    getValorCuotaMensual(montoSolicitado, plazo, tasa)
+  );
 
-  let valorInteresMensual = getValorInteresMensual(
-    montoSolicitado,
-    plazo,
-    tasa
+  let valorInteresMensual = Math.round(
+    getValorInteresMensual(montoSolicitado, plazo, tasa)
   );
   return (
     <div data-testid="FormDetalle" className="">
-      <h1>FormDetalle component</h1>
+      {/* <h1>FormDetalle component</h1> */}
       <div className="d-flex justify-content-between my-2">
         <span>
           <b>Tasa de Interes</b>

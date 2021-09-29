@@ -24,8 +24,14 @@ body {
 .justify-content-between {
   justify-content: space-between;
 }
+.align-items-center {
+  justify-items: center;
+}
 .text-center {
   text-align: center;
+}
+.m-auto {
+  margin: auto auto;
 }
 .mx-2 {
   margin-right: 10px;
