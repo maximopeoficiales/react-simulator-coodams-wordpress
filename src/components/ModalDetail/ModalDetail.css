@@ -13,8 +13,6 @@ a {
   text-decoration: none;
 }
 
-
-
 .btn-group {
   text-align: center;
 }
@@ -50,6 +48,12 @@ a {
 .modal.is-visible {
   visibility: visible;
   opacity: 1;
+}
+@media (min-width: 768px) {
+  .modal.is-visible {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 .modal-dialog {

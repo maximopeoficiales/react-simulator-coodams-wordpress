@@ -19,6 +19,7 @@ const FormSimulador = (props: MyProps) => {
   const [idSeleccionado, setIdSeleccionado] = useState<string>(
     CreditoType.LIBRE_INVERSION
   );
+  const [mostrarModal, setMostrarModal] = useState(false);
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
   const [montoSolicitado, setMontoSolicitado] = useState(1);
   const [creditoNames, setCreditoNames] = useState<CreditoData[]>([]);
@@ -73,6 +74,7 @@ const FormSimulador = (props: MyProps) => {
 
   const calcularCredito = () => {
     setMostrarDetalle(true);
+    setMostrarModal(true);
     console.log(montoSolicitado, tasa, plazo);
   };
 
@@ -88,14 +90,16 @@ const FormSimulador = (props: MyProps) => {
             <b>$ {numberWithCommas(montoSolicitado)}</b>
           </span>
         </div>
-        <input
-          onChange={handleChangeRange}
-          type="number"
-          className="w-100 my-2"
-          min="0"
-          max={creditoSeleccionado?.montoMax ?? 1}
-          value={montoSolicitado}
-        />
+        <div className="d-flex">
+          <input
+            onChange={handleChangeRange}
+            type="number"
+            className="w-100 my-2"
+            min="0"
+            max={creditoSeleccionado?.montoMax ?? 1}
+            value={montoSolicitado}
+          />
+        </div>
         <div className="">
           <input
             onChange={handleChangeRange}
@@ -175,7 +179,11 @@ const FormSimulador = (props: MyProps) => {
         {mostrarDetalle ? (
           <>
             <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
-            <ModalDetail data={{ tasa, plazo, montoSolicitado }} />
+            <ModalDetail
+              data={{ tasa, plazo, montoSolicitado }}
+              visible={mostrarModal}
+              setVisible={setMostrarModal}
+            />
           </>
         ) : (
           <p>
