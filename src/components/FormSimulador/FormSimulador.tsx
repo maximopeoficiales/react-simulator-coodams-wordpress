@@ -80,7 +80,7 @@ const FormSimulador = (props: MyProps) => {
 
   return (
     <div className="container-simulador">
-      <div className="">
+      <div className="simulador-formulario">
         <div className="d-flex justify-content-between">
           <span>
             <b>Monto Solicitado</b>
@@ -186,7 +186,7 @@ const FormSimulador = (props: MyProps) => {
       <div className="my-auto">
         {mostrarDetalle ? (
           <>
-            <h2>Detalle del Prestamo</h2>
+            <h2 className="text-center">Detalle del Prestamo</h2>
             <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
             <ModalDetail
               data={{ tasa, plazo, montoSolicitado }}
