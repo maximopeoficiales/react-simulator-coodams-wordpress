@@ -14,5 +14,6 @@ export const getUrlApi = () => {
         urlBase = URL_API_BASE;
     }
 
-    return `${urlBase}/${URL_GET_OPTIONS}`;
+    // return `${urlBase}/${URL_GET_OPTIONS}`;
+    return `http://localhost:97/${URL_GET_OPTIONS}`;
 }

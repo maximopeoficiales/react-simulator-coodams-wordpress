@@ -107,7 +107,7 @@ const FormSimulador = (props: MyProps) => {
           <input
             onChange={handleChangeRange}
             type="range"
-            className="w-100 simulador-scroll-input"
+            className="w-100 range simulador-scroll-input  "
             min="0"
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
