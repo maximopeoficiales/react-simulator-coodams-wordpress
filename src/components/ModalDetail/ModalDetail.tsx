@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FormDetalle from "../FormDetalle/FormDetalle";
 import "./ModalDetail.css";
 
