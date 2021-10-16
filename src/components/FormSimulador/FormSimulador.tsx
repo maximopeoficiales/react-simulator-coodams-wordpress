@@ -66,6 +66,7 @@ const FormSimulador = (props: MyProps) => {
 
   const handleChangePlazo = (e: ChangeEvent<HTMLSelectElement>) => {
     setPlazo(parseInt(e.target.value));
+    setMostrarDetalle(false);
   };
 
   const handlerChangeSelectCredito = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -73,12 +74,14 @@ const FormSimulador = (props: MyProps) => {
     let idSelect = e.target.value;
     setIdSeleccionado(idSelect);
     setMostrarAntiguedad(idSelect === CreditoType.VEHICULO);
+    setMostrarDetalle(false);
   };
 
   const handleChangeAntiguedad = (e: ChangeEvent<HTMLSelectElement>) => {
     let tasa = getTasaByAntiguedad(e.target.value, tasaData);
     setTasa(tasa);
     setAntiguedad(e.target.value);
+    setMostrarDetalle(false);
   };
 
   const calcularCredito = () => {
