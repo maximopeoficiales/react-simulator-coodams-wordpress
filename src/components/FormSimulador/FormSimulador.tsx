@@ -103,11 +103,11 @@ const FormSimulador = (props: MyProps) => {
       <div className="simulador-formulario">
         <div className="d-flex justify-content-between">
           <span>
-            <b>Monto Solicitado</b>
+            <b className="simulador-titulo-formulario">Monto Solicitado</b>
           </span>
 
           <span>
-            <b className="simulador-color-valor">
+            <b className="simulador-caja-monto">
               $ {numberWithCommas(montoSolicitado, ".")}
             </b>
           </span>
@@ -132,14 +132,14 @@ const FormSimulador = (props: MyProps) => {
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
-          <small className="text-muted">
+          <small className="text-muted simulador-text-muted">
             Desliza para elegir el monto deseado de su préstamo
           </small>
         </div>
 
         <div className="form-group">
           <label htmlFor="idSelectCredito" className="d-flex my-2">
-            <b>Crédito</b>
+            <b className="simulador-titulo-formulario">Crédito</b>
           </label>
           <select
             id="idSelectCredito"
@@ -157,7 +157,7 @@ const FormSimulador = (props: MyProps) => {
 
         <div className="form-group">
           <label htmlFor="idSelectPlazo" className="d-flex my-2">
-            <b>Plazos / Cuotas</b>
+            <b className="simulador-titulo-formulario">Plazos / Cuotas</b>
           </label>
           <select
             id="idSelectPlazo"

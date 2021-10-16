@@ -20,7 +20,7 @@ const ModalDetail = (props: MyProps) => {
         <div className="modal-dialog">
           <header className="modal-header">
             <h3 className="my-0">
-              <b>Detalle del Prestamo</b>
+              <b className="simulador-titulo-detalle">Detalle del Prestamo</b>
             </h3>
             <button
               className="close-modal simulador-btn-hidden-modal"

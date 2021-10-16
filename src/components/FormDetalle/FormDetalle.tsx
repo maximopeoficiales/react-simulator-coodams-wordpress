@@ -22,7 +22,7 @@ const FormDetalle = (props: MyProps) => {
       {/* <h1>FormDetalle component</h1> */}
       <div className="d-flex justify-content-between my-2">
         <span>
-          <b>Tasa de Interes</b>
+          <b className="simulador-color-valor">Tasa de Interes</b>
         </span>
         <span>
           <b className="simulador-color-valor">{tasa} %</b>
@@ -51,7 +51,7 @@ const FormDetalle = (props: MyProps) => {
         <span>
           <b>Nota:</b>
         </span>
-        <p className="my-0 text-muted">
+        <p className="my-0 text-muted simulador-text-muted">
           Si tienes la opción de realizar abonos extras, consulta con un asesor
           y revisa tu proyección
         </p>
