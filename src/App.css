@@ -32,6 +32,7 @@ body {
 }
 .text-muted {
   color: #6c757d !important;
+  font-style: italic;
 }
 .m-auto {
   margin: auto auto;

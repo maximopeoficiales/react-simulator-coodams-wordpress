@@ -34,16 +34,16 @@ const FormDetalle = (props: MyProps) => {
         </span>
         <span>
           <b className="simulador-color-valor">
-            ${numberWithCommas(valorCuotaMensual)}
+            ${numberWithCommas(valorCuotaMensual, ".")}
           </b>
         </span>
       </div>
       <div className="d-flex justify-content-between my-2">
         <span>
-          <b>Valor Interes Mensual</b>
+          <b>Valor Total Intereses</b>
         </span>
         <span>
-          <b>${numberWithCommas(valorInteresMensual)}</b>
+          <b>${numberWithCommas(valorInteresMensual, ".")}</b>
         </span>
       </div>
 

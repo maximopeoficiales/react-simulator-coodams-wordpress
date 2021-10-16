@@ -8,9 +8,11 @@ import { addTasasDataApi } from "../../api/utils/addTasasData";
 import { creditoDataFilter } from "../../api/utils/creditoFormated";
 import { getTasaByAntiguedad } from "../../api/utils/getTasaByAntiguedad";
 import { numberWithCommas } from "../../api/utils/numberWithComas";
+import { roundByNumber } from "../../api/utils/roundByNumber";
 import { TasaContext } from "../../context/TasaContext";
 import FormDetalle from "../FormDetalle/FormDetalle";
 import ModalDetail from "../ModalDetail/ModalDetail";
+import Swal from "sweetalert2";
 
 interface MyProps {}
 const FormSimulador = (props: MyProps) => {
@@ -48,9 +50,16 @@ const FormSimulador = (props: MyProps) => {
   // events listener
   const handleChangeRange = (e: ChangeEvent<HTMLInputElement>) => {
     let montoMaximo = creditoSeleccionado?.montoMax ?? 1;
-    if (parseFloat(e.target.value) <= montoMaximo) {
-      setMontoSolicitado(parseFloat(e.target.value));
+    let monto = parseFloat(e.target.value);
+    let round10000 = roundByNumber(monto, 10000);
+    if (round10000 <= montoMaximo) {
+      setMontoSolicitado(round10000);
     } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Te haz pasado el limite de monto para este Tipo de Credito",
+      });
       setMontoSolicitado(0);
     }
   };
@@ -73,9 +82,17 @@ const FormSimulador = (props: MyProps) => {
   };
 
   const calcularCredito = () => {
-    setMostrarDetalle(true);
-    setMostrarModal(true);
-    console.log(montoSolicitado, tasa, plazo);
+    if (montoSolicitado !== 0) {
+      setMostrarDetalle(true);
+      setMostrarModal(true);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No puedes hacer una prestamo con Monto: 0",
+      });
+    }
+    // console.log(montoSolicitado, tasa, plazo);
   };
 
   return (
@@ -88,11 +105,11 @@ const FormSimulador = (props: MyProps) => {
 
           <span>
             <b className="simulador-color-valor">
-              $ {numberWithCommas(montoSolicitado)}
+              $ {numberWithCommas(montoSolicitado, ".")}
             </b>
           </span>
         </div>
-        <div className="d-flex">
+        {/* <div className="d-flex">
           <input
             onChange={handleChangeRange}
             type="number"
@@ -102,7 +119,7 @@ const FormSimulador = (props: MyProps) => {
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
-        </div>
+        </div> */}
         <div className="">
           <input
             onChange={handleChangeRange}
@@ -195,9 +212,7 @@ const FormSimulador = (props: MyProps) => {
             />
           </>
         ) : (
-          <p>
-            {/* <b>Una Imagen</b> */}
-          </p>
+          <p>{/* <b>Una Imagen</b> */}</p>
         )}
       </div>
     </div>
