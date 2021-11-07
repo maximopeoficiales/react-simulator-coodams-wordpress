@@ -25,7 +25,7 @@ const FormDetalle = (props: MyProps) => {
           <b className="simulador-color-valor">Tasa de Interes</b>
         </span>
         <span>
-          <b className="simulador-color-valor">{tasa} %</b>
+          <b className="simulador-color-valor">{tasa.toFixed(2)} %</b>
         </span>
       </div>
       <div className="d-flex justify-content-between my-2">

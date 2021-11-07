@@ -25,7 +25,7 @@ const FormSimulador = (props: MyProps) => {
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
   const [montoSolicitado, setMontoSolicitado] = useState(1);
   const [creditoNames, setCreditoNames] = useState<CreditoData[]>([]);
-  const [plazo, setPlazo] = useState(1);
+  const [plazo, setPlazo] = useState(18);
   const [mostrarAntiguedad, setMostrarAntiguedad] = useState(false);
   const [antiguedad, setAntiguedad] = useState("");
   const [tasa, setTasa] = useState(0);
@@ -43,7 +43,9 @@ const FormSimulador = (props: MyProps) => {
   useEffect(() => {
     let creditoData2 = addTasasDataApi(creditoData, tasaData);
     let creditoFilter = creditoData2.find((e) => e.id === idSeleccionado);
+
     setTasa(creditoFilter?.tasa ?? 0);
+    setPlazo(creditoFilter?.plazos[0] ?? 0);
     setCreditoSeleccionado(creditoFilter ?? {});
   }, [idSeleccionado, tasaData]);
 
@@ -154,7 +156,6 @@ const FormSimulador = (props: MyProps) => {
             ))}
           </select>
         </div>
-
         <div className="form-group">
           <label htmlFor="idSelectPlazo" className="d-flex my-2">
             <b className="simulador-titulo-formulario">Plazos / Cuotas</b>
