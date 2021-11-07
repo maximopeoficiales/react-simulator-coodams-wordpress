@@ -19,7 +19,6 @@ const FormDetalle = (props: MyProps) => {
   );
   return (
     <div data-testid="FormDetalle" className="">
-      {/* <h1>FormDetalle component</h1> */}
       <div className="d-flex justify-content-between my-2">
         <span>
           <b className="simulador-color-valor">Tasa de Interes</b>

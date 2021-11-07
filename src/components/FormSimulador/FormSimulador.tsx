@@ -44,7 +44,7 @@ const FormSimulador = (props: MyProps) => {
     let creditoData2 = addTasasDataApi(creditoData, tasaData);
     let creditoFilter = creditoData2.find((e) => e.id === idSeleccionado);
 
-    setTasa(creditoFilter?.tasa ?? 0);
+    setTasa(parseFloat((creditoFilter?.tasa ?? 0).toString()));
     setPlazo(creditoFilter?.plazos[0] ?? 0);
     setCreditoSeleccionado(creditoFilter ?? {});
   }, [idSeleccionado, tasaData]);
@@ -81,7 +81,7 @@ const FormSimulador = (props: MyProps) => {
 
   const handleChangeAntiguedad = (e: ChangeEvent<HTMLSelectElement>) => {
     let tasa = getTasaByAntiguedad(e.target.value, tasaData);
-    setTasa(tasa);
+    setTasa(parseFloat(tasa.toString()));
     setAntiguedad(e.target.value);
     setMostrarDetalle(false);
   };
