@@ -6,6 +6,11 @@ export enum CreditoType {
     VEHICULO2 = "VEHICULO2",
     VEHICULO3 = "VEHICULO3",
 }
+export enum CreditoIdConfig {
+    LIBRE_INVERSION = 1,
+    VIVIENDA = 2,
+    VEHICULO = 3,
+}
 export enum Antiguedad {
     DE_12_36_MESES = "12 - 36 meses",
     DE_37_120_MESES = "37 - 120 meses",

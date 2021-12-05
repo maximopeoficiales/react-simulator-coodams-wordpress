@@ -42,6 +42,11 @@ const FormSimulador = (props: MyProps) => {
     console.log(creditoDataFormated);
 
     setCreditoNames(creditoDataFormated);
+    // ESTO SOLO PASARA cuando asignen vehiculo como unico
+    if (creditoDataFormated[0].id === CreditoType.VEHICULO) {
+      setMostrarAntiguedad(true);
+      setIdSeleccionado(CreditoType.VEHICULO);
+    }
   }, [tasaData]);
 
   useEffect(() => {
