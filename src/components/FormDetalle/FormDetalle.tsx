@@ -18,39 +18,43 @@ const FormDetalle = (props: MyProps) => {
     getValorInteresMensual(montoSolicitado, plazo, tasa)
   );
   return (
-    <div data-testid="FormDetalle" className="">
-      <div className="d-flex justify-content-between my-2">
-        <span>
-          <b className="simulador-color-valor">Tasa de Interes</b>
-        </span>
-        <span>
-          <b className="simulador-color-valor">{tasa.toFixed(2)} %</b>
-        </span>
-      </div>
-      <div className="d-flex justify-content-between my-2">
-        <span>
-          <b className="simulador-color-valor">Valor Cuota Mensual</b>
-        </span>
-        <span>
-          <b className="simulador-color-valor">
-            ${numberWithCommas(valorCuotaMensual, ".")}
-          </b>
-        </span>
-      </div>
-      <div className="d-flex justify-content-between my-2">
-        <span>
-          <b>Valor Total Intereses</b>
-        </span>
-        <span>
-          <b>${numberWithCommas(valorInteresMensual, ".")}</b>
-        </span>
+    <div data-testid="FormDetalle" className="contenedor-detalle">
+      <div className="contenededor-informacion-detalle">
+        <div className="d-flex justify-content-between my-2">
+          <span>
+            <b className="simulador-color-valor">Tasa de Interes</b>
+          </span>
+          <span>
+            <b className="simulador-color-valor">{tasa.toFixed(2)} %</b>
+          </span>
+        </div>
+        <div className="d-flex justify-content-between my-2">
+          <span>
+            <b className="simulador-color-valor">Valor Cuota Mensual</b>
+          </span>
+          <span>
+            <b className="simulador-color-valor">
+              ${numberWithCommas(valorCuotaMensual, ".")}
+            </b>
+          </span>
+        </div>
+        <div className="d-flex justify-content-between my-2">
+          <span>
+            <b className="simulador-color-valor">Valor Total Intereses</b>
+          </span>
+          <span>
+            <b className="simulador-color-valor">
+              ${numberWithCommas(valorInteresMensual, ".")}
+            </b>
+          </span>
+        </div>
       </div>
 
       <div className="mt-4">
         <span>
-          <b>Nota:</b>
+          <b className="simulador-color-valor">Nota:</b>
         </span>
-        <p className="my-0 text-muted simulador-text-muted">
+        <p className="my-0 text-muted simulador-texto-ayuda">
           Si tienes la opción de realizar abonos extras, consulta con un asesor
           y revisa tu proyección
         </p>

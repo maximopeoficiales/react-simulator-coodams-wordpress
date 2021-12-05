@@ -142,18 +142,8 @@ const FormSimulador = (props: MyProps) => {
             {/* {numberWithCommas(montoSolicitado, ".")} */}
           </div>
         </div>
-        {/* <div className="d-flex">
-          <input
-            onChange={handleChangeRange}
-            type="number"
-            className="w-100 my-2 simulador-input"
-            min="0"
-            step="0.01"
-            max={creditoSeleccionado?.montoMax ?? 1}
-            value={montoSolicitado}
-          />
-        </div> */}
-        <div className="">
+
+        <div className="container-simulador-scroll">
           <input
             onChange={handleChangeRange}
             type="range"
@@ -235,7 +225,9 @@ const FormSimulador = (props: MyProps) => {
       <div className="my-auto">
         {mostrarDetalle ? (
           <>
-            <h2 className="text-center">Detalle del Prestamo</h2>
+            <h2 className="text-center simulador-titulo-detalle">
+              Detalle del Prestamo
+            </h2>
             <FormDetalle data={{ tasa, plazo, montoSolicitado }} />
             <ModalDetail
               data={{ tasa, plazo, montoSolicitado }}

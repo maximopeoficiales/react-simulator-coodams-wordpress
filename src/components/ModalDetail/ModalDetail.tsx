@@ -17,12 +17,12 @@ const ModalDetail = (props: MyProps) => {
     <div>
       <div className={`modal ${classVisible}`} data-animation="slideInOutLeft">
         <div className="modal-dialog">
-          <header className="modal-header">
+          <header className="modal-header simulador-modal-cabezera">
             <h3 className="my-0">
-              <b className="simulador-titulo-detalle">Detalle del Prestamo</b>
+              <b className="simulador-modal-titulo-detalle">Detalle del Prestamo</b>
             </h3>
             <button
-              className="close-modal simulador-btn-hidden-modal"
+              className="close-modal simulador-ocultar-modal"
               aria-label="close modal"
               data-close
               onClick={hidden}
