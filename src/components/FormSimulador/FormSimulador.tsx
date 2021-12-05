@@ -129,7 +129,7 @@ const FormSimulador = (props: MyProps) => {
           </span>
 
           <div className="d-flex justify-content-center align-items-center">
-            <span className="mx-2">$</span>
+            <span className="mx-2 simulador-simbolo-peso">$</span>
             <input
               onChange={handleChangeRangeInput}
               type="number"
