@@ -12,7 +12,6 @@ import { roundByNumber } from "../../api/utils/roundByNumber";
 import { TasaContext } from "../../context/TasaContext";
 import FormDetalle from "../FormDetalle/FormDetalle";
 import ModalDetail from "../ModalDetail/ModalDetail";
-import Swal from "sweetalert2";
 
 interface MyProps {}
 const FormSimulador = (props: MyProps) => {
@@ -57,11 +56,12 @@ const FormSimulador = (props: MyProps) => {
     if (round10000 <= montoMaximo) {
       setMontoSolicitado(round10000);
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Te haz pasado el limite de monto para este Tipo de Credito",
-      });
+      // Swal.fire({
+      //   icon: "error",
+      //   title: "Oops...",
+      //   text: "Te haz pasado el limite de monto para este Tipo de Credito",
+      // });
+
       setMontoSolicitado(0);
     }
   };
@@ -91,11 +91,11 @@ const FormSimulador = (props: MyProps) => {
       setMostrarDetalle(true);
       setMostrarModal(true);
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "No puedes hacer una prestamo con Monto: 0",
-      });
+      // Swal.fire({
+      //   icon: "error",
+      //   title: "Oops...",
+      //   text: "No puedes hacer una prestamo con Monto: 0",
+      // });
     }
     // console.log(montoSolicitado, tasa, plazo);
   };
@@ -108,11 +108,19 @@ const FormSimulador = (props: MyProps) => {
             <b className="simulador-titulo-formulario">Monto Solicitado</b>
           </span>
 
-          <span>
-            <b className="simulador-caja-monto">
-              $ {numberWithCommas(montoSolicitado, ".")}
-            </b>
-          </span>
+          <div className="d-flex justify-content-center align-items-center">
+            <span className="mx-2">$</span>
+            <input
+              onChange={handleChangeRange}
+              type="number"
+              className="w-100 text-right my-2 simulador-input simulador-caja-monto"
+              min="0"
+              step="0.01"
+              max={creditoSeleccionado?.montoMax ?? 1}
+              value={montoSolicitado}
+            />
+            {/* {numberWithCommas(montoSolicitado, ".")} */}
+          </div>
         </div>
         {/* <div className="d-flex">
           <input
