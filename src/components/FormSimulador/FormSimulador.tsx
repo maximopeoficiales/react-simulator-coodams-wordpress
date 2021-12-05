@@ -22,7 +22,7 @@ const FormSimulador = (props: MyProps) => {
   );
   const [mostrarModal, setMostrarModal] = useState(false);
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
-  const [montoSolicitado, setMontoSolicitado] = useState(1);
+  const [montoSolicitado, setMontoSolicitado] = useState(0);
   const [creditoNames, setCreditoNames] = useState<CreditoData[]>([]);
   const [plazo, setPlazo] = useState(18);
   const [mostrarAntiguedad, setMostrarAntiguedad] = useState(false);
