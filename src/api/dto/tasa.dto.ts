@@ -7,4 +7,9 @@ export interface TasaData {
     sim_libre_inversion?: string;
     sim_vehiculo?: string;
     sim_vivienda?: string;
+
+    //  Montos maximos
+    monto_max_libre_inversion: number;
+    monto_max_vivienda: number;
+    monto_max_vehiculo: number;
 }

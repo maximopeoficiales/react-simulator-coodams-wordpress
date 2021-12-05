@@ -103,7 +103,7 @@ const FormSimulador = (props: MyProps) => {
   return (
     <div className="container-simulador">
       <div className="simulador-formulario">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between align-items-center">
           <span>
             <b className="simulador-titulo-formulario">Monto Solicitado</b>
           </span>

@@ -5,4 +5,10 @@ interface TasaProvider {
     tasaData: TasaData,
 }
 
-export const TasaContext = createContext<TasaProvider>({ tasaData: {} });
+export const TasaContext = createContext<TasaProvider>({
+    tasaData: {
+        monto_max_libre_inversion: 1,
+        monto_max_vehiculo: 1,
+        monto_max_vivienda: 1,
+    }
+});
