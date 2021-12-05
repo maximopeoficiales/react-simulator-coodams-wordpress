@@ -16,5 +16,5 @@ export const getUrlApi = () => {
     }
 
     // return `${urlBase}/${URL_GET_OPTIONS}`;
-    return `http://localhost:81/${URL_GET_OPTIONS}`;
+    return `http://192.168.238.240:3001/${URL_GET_OPTIONS}`;
 }

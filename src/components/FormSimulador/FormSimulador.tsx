@@ -7,7 +7,7 @@ import {
 import { addTasasDataApi } from "../../api/utils/addTasasData";
 import { creditoDataFilter } from "../../api/utils/creditoFormated";
 import { getTasaByAntiguedad } from "../../api/utils/getTasaByAntiguedad";
-import { numberWithCommas } from "../../api/utils/numberWithComas";
+// import { numberWithCommas } from "../../api/utils/numberWithComas";
 import { roundByNumber } from "../../api/utils/roundByNumber";
 import { TasaContext } from "../../context/TasaContext";
 import { useActive } from "../../hooks/useActive";
@@ -58,21 +58,20 @@ const FormSimulador = (props: MyProps) => {
     let montoMaximo = creditoSeleccionado?.montoMax ?? 1;
     let monto = parseFloat(e.target.value);
     let round10000 = roundByNumber(monto, 10000);
-    if (round10000 <= montoMaximo) {
-      setMontoSolicitado(round10000);
+    handleChangeAmount(round10000, montoMaximo);
+  };
+  const handleChangeRangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    let montoMaximo = creditoSeleccionado?.montoMax ?? 1;
+    let monto = parseFloat(e.target.value);
+    handleChangeAmount(monto, montoMaximo);
+  };
+  const handleChangeAmount = (amount: number, amountMax: number) => {
+    if (amount <= amountMax) {
+      setMontoSolicitado(amount);
       setActiveAlertAmountMax(false);
     } else {
-      let montoMaximoFind =
-        creditoNames.find((e) => e.id === idSeleccionado)?.montoMax ?? 0;
-
-      setMontoSolicitado(montoMaximoFind);
+      setMontoSolicitado(amountMax);
       setActiveAlertAmountMax(true);
-      // Swal.fire({
-      //   icon: "error",
-      //   title: "Oops...",
-      //   text: "Te haz pasado el limite de monto para este Tipo de Credito",
-      // });
-      // setMontoSolicitado(0);
     }
   };
 
@@ -127,11 +126,11 @@ const FormSimulador = (props: MyProps) => {
           <div className="d-flex justify-content-center align-items-center">
             <span className="mx-2">$</span>
             <input
-              onChange={handleChangeRange}
+              onChange={handleChangeRangeInput}
               type="number"
               className="w-100 text-right my-2 simulador-input simulador-caja-monto"
               min="0"
-              step="0.01"
+              // step="0.01"
               max={creditoSeleccionado?.montoMax ?? 1}
               value={montoSolicitado}
             />
