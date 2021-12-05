@@ -10,11 +10,11 @@ export const getUrlApi = () => {
     let existsInUrlTest = location.href.includes("test");
 
     let urlBase = protocol + "//" + host + (existsInUrlTest ? "/test" : "");
-
+    
     if (host.includes("localhost")) {
         urlBase = URL_API_BASE;
     }
 
-    // return `${urlBase}/${URL_GET_OPTIONS}`;
-    return `http://192.168.238.240:3001/${URL_GET_OPTIONS}`;
+    return `${urlBase}/${URL_GET_OPTIONS}`;
+    // return `http://192.168.238.240:3001/${URL_GET_OPTIONS}`;
 }
