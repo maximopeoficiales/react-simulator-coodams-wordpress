@@ -62,6 +62,10 @@ const FormSimulador = (props: MyProps) => {
       setMontoSolicitado(round10000);
       setActiveAlertAmountMax(false);
     } else {
+      let montoMaximoFind =
+        creditoNames.find((e) => e.id === idSeleccionado)?.montoMax ?? 0;
+
+      setMontoSolicitado(montoMaximoFind);
       setActiveAlertAmountMax(true);
       // Swal.fire({
       //   icon: "error",
