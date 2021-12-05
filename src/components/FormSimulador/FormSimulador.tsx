@@ -55,6 +55,8 @@ const FormSimulador = (props: MyProps) => {
 
     setTasa(parseFloat((creditoFilter?.tasa ?? 0).toString()));
     setPlazo(creditoFilter?.plazos[0] ?? 0);
+    // console.log(creditoFilter);
+
     setCreditoSeleccionado(creditoFilter ?? {});
   }, [idSeleccionado, tasaData]);
 
@@ -71,7 +73,8 @@ const FormSimulador = (props: MyProps) => {
     handleChangeAmount(monto, montoMaximo);
   };
   const handleChangeAmount = (amount: number, amountMax: number) => {
-    if (amount <= amountMax) {
+    // console.log({ amount, amountMax });
+    if (amount < amountMax) {
       setMontoSolicitado(amount);
       setActiveAlertAmountMax(false);
     } else {
