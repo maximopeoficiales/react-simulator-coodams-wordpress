@@ -39,7 +39,7 @@ const FormSimulador = (props: MyProps) => {
   useEffect(() => {
     // obtengo opciones por defecto
     const creditoDataFormated = creditoDataFilter(creditoData, tasaData);
-    console.log(creditoDataFormated);
+    // console.log(creditoDataFormated);
 
     setCreditoNames(creditoDataFormated);
     // ESTO SOLO PASARA cuando asignen vehiculo como unico
