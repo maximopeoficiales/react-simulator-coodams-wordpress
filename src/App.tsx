@@ -3,7 +3,7 @@ import "./App.css";
 import Simulador from "./components/Simulador/Simulador";
 import Spinner from "./components/ui/Spinner/Spinner";
 import { TasaContext } from "./context/TasaContext";
-import { useFetch } from "./hooks/useFetch/useFetch";
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
   const URL_API = getUrlApi();

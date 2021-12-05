@@ -21,8 +21,12 @@ body {
 .d-flex {
   display: flex;
 }
+
 .justify-content-between {
   justify-content: space-between;
+}
+.justify-content-end {
+  justify-content: end;
 }
 .justify-content-center {
   justify-content: center;
@@ -30,7 +34,7 @@ body {
 .align-items-center {
   align-items: center;
 }
-.text-right{
+.text-right {
   text-align: right;
 }
 .text-center {
@@ -181,4 +185,11 @@ body {
 
 .range:active::-ms-thumb {
   border: none;
+}
+
+/* extras */
+.alerta-monto-max {
+  font-size: 0.85rem;
+  color: #6ECB63;
+  font-weight: bold;
 }

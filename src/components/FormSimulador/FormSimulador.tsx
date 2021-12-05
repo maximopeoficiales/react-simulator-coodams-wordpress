@@ -10,6 +10,7 @@ import { getTasaByAntiguedad } from "../../api/utils/getTasaByAntiguedad";
 import { numberWithCommas } from "../../api/utils/numberWithComas";
 import { roundByNumber } from "../../api/utils/roundByNumber";
 import { TasaContext } from "../../context/TasaContext";
+import { useActive } from "../../hooks/useActive";
 import FormDetalle from "../FormDetalle/FormDetalle";
 import ModalDetail from "../ModalDetail/ModalDetail";
 
@@ -31,13 +32,15 @@ const FormSimulador = (props: MyProps) => {
   const [creditoSeleccionado, setCreditoSeleccionado] = useState<
     Partial<CreditoData>
   >({});
+  const { active: showAlertAmountMax, setActive: setActiveAlertAmountMax } =
+    useActive();
 
   // effects
   useEffect(() => {
     // obtengo opciones por defecto
     const creditoDataFormated = creditoDataFilter(creditoData, tasaData);
     console.log(creditoDataFormated);
-    
+
     setCreditoNames(creditoDataFormated);
   }, [tasaData]);
 
@@ -57,14 +60,15 @@ const FormSimulador = (props: MyProps) => {
     let round10000 = roundByNumber(monto, 10000);
     if (round10000 <= montoMaximo) {
       setMontoSolicitado(round10000);
+      setActiveAlertAmountMax(false);
     } else {
+      setActiveAlertAmountMax(true);
       // Swal.fire({
       //   icon: "error",
       //   title: "Oops...",
       //   text: "Te haz pasado el limite de monto para este Tipo de Credito",
       // });
-
-      setMontoSolicitado(0);
+      // setMontoSolicitado(0);
     }
   };
 
@@ -74,6 +78,7 @@ const FormSimulador = (props: MyProps) => {
   };
 
   const handlerChangeSelectCredito = (e: ChangeEvent<HTMLSelectElement>) => {
+    setActiveAlertAmountMax(false);
     setMontoSolicitado(0);
     let idSelect = e.target.value;
     setIdSeleccionado(idSelect);
@@ -105,6 +110,11 @@ const FormSimulador = (props: MyProps) => {
   return (
     <div className="container-simulador">
       <div className="simulador-formulario">
+        <div className="d-flex justify-content-end">
+          <span className="alerta-monto-max">
+            {showAlertAmountMax && "Este el monto máximo"}
+          </span>
+        </div>
         <div className="d-flex justify-content-between align-items-center">
           <span>
             <b className="simulador-titulo-formulario">Monto Solicitado</b>
