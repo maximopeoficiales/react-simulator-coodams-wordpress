@@ -36,6 +36,8 @@ const FormSimulador = (props: MyProps) => {
   useEffect(() => {
     // obtengo opciones por defecto
     const creditoDataFormated = creditoDataFilter(creditoData, tasaData);
+    console.log(creditoDataFormated);
+    
     setCreditoNames(creditoDataFormated);
   }, [tasaData]);
 

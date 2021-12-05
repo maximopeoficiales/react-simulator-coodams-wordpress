@@ -14,16 +14,18 @@ export const creditoDataFilter = (data: CreditoData[], tasaDataAPI: TasaData): C
         if (e.id === CreditoType.VIVIENDA) {
             e.montoMax = tasaDataAPI.monto_max_vivienda;
         }
+        return e;
     });
-    if (!(parseInt(tasaDataAPI.sim_libre_inversion ?? ""))) {
+
+    if (!(tasaDataAPI.sim_libre_inversion)) {
         data = data.filter(e => e.id !== CreditoType.LIBRE_INVERSION);
     }
 
-    if (!(parseInt(tasaDataAPI.sim_vehiculo ?? ""))) {
+    if (!(tasaDataAPI.sim_vehiculo)) {
         data = data.filter(e => e.id !== CreditoType.VEHICULO);
     }
 
-    if (!(parseInt(tasaDataAPI.sim_vivienda ?? ""))) {
+    if (!(tasaDataAPI.sim_vivienda)) {
         data = data.filter(e => e.id !== CreditoType.VIVIENDA);
     }
     return data;
