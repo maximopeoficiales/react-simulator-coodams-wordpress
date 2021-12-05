@@ -54,7 +54,7 @@ const FormDetalle = (props: MyProps) => {
         <span>
           <b className="simulador-color-valor">Nota:</b>
         </span>
-        <p className="my-0 text-muted simulador-texto-ayuda">
+        <p className="my-0 text-muted2 simulador-texto-ayuda">
           Si tienes la opción de realizar abonos extras, consulta con un asesor
           y revisa tu proyección
         </p>

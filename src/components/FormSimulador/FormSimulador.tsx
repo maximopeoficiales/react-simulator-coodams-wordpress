@@ -155,7 +155,7 @@ const FormSimulador = (props: MyProps) => {
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
-          <small className="text-muted simulador-texto-ayuda-form">
+          <small className="text-muted2 simulador-texto-ayuda-form">
             Desliza para elegir el monto deseado de su préstamo
           </small>
         </div>
@@ -212,7 +212,7 @@ const FormSimulador = (props: MyProps) => {
                 </option>
               ))}
             </select>
-            <small className="text-muted my-2 d-block simulador-text-muted">
+            <small className="text-muted2 my-2 d-block simulador-text-muted">
               Selecciona la Antiguedad como asociado de la cooperativa
             </small>
           </div>

@@ -40,8 +40,8 @@ body {
 .text-center {
   text-align: center;
 }
-.text-muted {
-  color: #6c757d !important;
+.text-muted2 {
+  color: #6c757d ;
   font-style: italic;
 }
 .m-auto {
