@@ -116,10 +116,10 @@ const FormSimulador = (props: MyProps) => {
   };
 
   return (
-    <div className="container-simulador">
+    <div className="contenedor-simulador">
       <div className="simulador-formulario">
         <div className="d-flex justify-content-end">
-          <span className="alerta-monto-max">
+          <span className="alerta-monto-maximo">
             {showAlertAmountMax && "Este el monto máximo"}
           </span>
         </div>
@@ -143,7 +143,7 @@ const FormSimulador = (props: MyProps) => {
           </div>
         </div>
 
-        <div className="container-simulador-scroll">
+        <div className="contenedor-simulador-scroll">
           <input
             onChange={handleChangeRange}
             type="range"
@@ -152,7 +152,7 @@ const FormSimulador = (props: MyProps) => {
             max={creditoSeleccionado?.montoMax ?? 1}
             value={montoSolicitado}
           />
-          <small className="text-muted simulador-text-muted">
+          <small className="text-muted simulador-texto-ayuda-form">
             Desliza para elegir el monto deseado de su préstamo
           </small>
         </div>
@@ -209,14 +209,14 @@ const FormSimulador = (props: MyProps) => {
                 </option>
               ))}
             </select>
-            <small className="text-muted my-2 d-block">
+            <small className="text-muted my-2 d-block simulador-text-muted">
               Selecciona la Antiguedad como asociado de la cooperativa
             </small>
           </div>
         )}
         <button
           onClick={calcularCredito}
-          className="my-2 w-100 simulador-button"
+          className="my-2 w-100 simulador-boton"
         >
           Calcular
         </button>
