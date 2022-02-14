@@ -16,6 +16,9 @@ export const creditoDataFilter = (data: CreditoData[], tasaDataAPI: TasaData): C
         if (e.id === CreditoType.VIVIENDA) {
             e.montoMax = tasaDataAPI.monto_max_vivienda;
         }
+        if (e.id === CreditoType.PLAN_CREDITO) {
+            e.montoMax = tasaDataAPI.monto_max_plan_credito;
+        }
         return e;
     });
     let configShowOnly = getConfigShowOnly();
@@ -43,6 +46,9 @@ export const creditoDataFilter = (data: CreditoData[], tasaDataAPI: TasaData): C
         }
         if (configShowOnly === 3) {
             return data.filter(e => e.id === CreditoType.VEHICULO);
+        }
+        if (configShowOnly === 4) {
+            return data.filter(e => e.id === CreditoType.PLAN_CREDITO);
         }
     }
 

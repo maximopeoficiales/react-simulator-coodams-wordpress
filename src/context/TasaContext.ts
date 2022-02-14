@@ -13,5 +13,7 @@ export const TasaContext = createContext<TasaProvider>({
         sim_libre_inversion: true,
         sim_vehiculo: true,
         sim_vivienda: true,
+        monto_max_plan_credito: 1,
+        sim_plan_credito: true,
     }
 });

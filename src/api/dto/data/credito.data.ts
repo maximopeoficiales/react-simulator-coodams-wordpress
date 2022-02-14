@@ -2,6 +2,7 @@ export enum CreditoType {
     LIBRE_INVERSION = "LIBRE_INVERSION",
     VIVIENDA = "VIVIENDA",
     VEHICULO = "VEHICULO",
+    PLAN_CREDITO = "Plan de crédito",
     VEHICULO1 = "VEHICULO1",
     VEHICULO2 = "VEHICULO2",
     VEHICULO3 = "VEHICULO3",
@@ -56,5 +57,15 @@ export const creditoData: CreditoData[] = [
         plazos: [12, 24, 36, 48, 60],
         antiguedades: [Antiguedad.DE_12_36_MESES, Antiguedad.DE_37_120_MESES, Antiguedad.MAS_120_MESES]
 
+    },
+    {
+        id: CreditoType.PLAN_CREDITO,
+        tasa: 1.3,
+        nombre: "Plan de Credito",
+        antiguedad: "",
+        helpText: "",
+        montoMax: 45426300,
+        plazos: [12, 24, 36, 48, 60],
+        // antiguedades: [Antiguedad.DE_12_36_MESES, Antiguedad.DE_37_120_MESES, Antiguedad.MAS_120_MESES]
     },
 ]
