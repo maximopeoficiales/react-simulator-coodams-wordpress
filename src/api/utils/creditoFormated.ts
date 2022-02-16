@@ -37,6 +37,10 @@ export const creditoDataFilter = (data: CreditoData[], tasaDataAPI: TasaData): C
         if (!(tasaDataAPI.sim_vivienda)) {
             data = data.filter(e => e.id !== CreditoType.VIVIENDA);
         }
+
+        if (!(tasaDataAPI.sim_plan_credito)) {
+            data = data.filter(e => e.id !== CreditoType.PLAN_CREDITO);
+        }
     } else {
         if (configShowOnly === 1) {
             return data.filter(e => e.id === CreditoType.LIBRE_INVERSION);

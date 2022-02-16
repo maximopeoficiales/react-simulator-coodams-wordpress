@@ -14,7 +14,7 @@ import { useActive } from "../../hooks/useActive";
 import FormDetalle from "../FormDetalle/FormDetalle";
 import ModalDetail from "../ModalDetail/ModalDetail";
 
-interface MyProps {}
+interface MyProps { }
 const FormSimulador = (props: MyProps) => {
   const { tasaData } = useContext(TasaContext);
   // states
@@ -39,7 +39,7 @@ const FormSimulador = (props: MyProps) => {
   useEffect(() => {
     // obtengo opciones por defecto
     const creditoDataFormated = creditoDataFilter(creditoData, tasaData);
-    // console.log(creditoDataFormated);
+    console.log(creditoDataFormated);
 
     setCreditoNames(creditoDataFormated);
     // ESTO SOLO PASARA cuando asignen vehiculo como unico
@@ -47,6 +47,12 @@ const FormSimulador = (props: MyProps) => {
       setMostrarAntiguedad(true);
       setIdSeleccionado(CreditoType.VEHICULO);
     }
+    // cuando solo este limitado por el shortcode a mostrar solo una opcion seleccionare el primero
+    if (creditoDataFormated.length === 1) {
+      setIdSeleccionado(creditoDataFormated[0].id);
+    }
+
+
   }, [tasaData]);
 
   useEffect(() => {
