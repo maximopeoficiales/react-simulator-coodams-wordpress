@@ -22,7 +22,7 @@ export const creditoDataFilter = (data: CreditoData[], tasaDataAPI: TasaData): C
         return e;
     });
     let configShowOnly = getConfigShowOnly();
-    // console.log(configShowOnly);
+    console.log(configShowOnly);
 
     if (configShowOnly === 0) {
         // oculta opciones dependiendo de la api
